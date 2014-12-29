@@ -22,17 +22,22 @@ Add AWS accessKeyId & secretAccessKey to your settings.json or METEOR_SETTINGS e
 }
 ```
 
-Here is how you can list all objects in a S3 bucket
+Here is how you can list all objects in a S3 bucket (on server)
 
 ````javascript
 s3 = new AWS.S3();
 
-files = s3.listObjectsSync({
-  Bucket: 'bucketname',
-  Prefix: 'subdirectory/'
-});
+var params = {
+    Bucket: 'myBucket'
+};
 
-_.each(files.Contents, function (file) {
-        console.log(file);
-    });
+s3.listObjects(params, function(err, data){
+    var bucketContents = data.Contents;
+    for (var i = 0; i < bucketContents.length; i++){
+        var urlParams = {Bucket: params.Bucket, Key: bucketContents[i].Key};
+        s3.getSignedUrl('getObject',urlParams, function(err, url){
+            console.log(url);
+        });
+    }
+});
 ````

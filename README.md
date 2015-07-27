@@ -11,16 +11,18 @@ meteor add risul:aws-sdk
 ```
 
 ## Usage
-Add AWS accessKeyId & secretAccessKey to your settings.json or METEOR_SETTINGS env variable containing all settings as JSON
+Add AWS accessKeyId & secretAccessKey to your settings.json or `METEOR_SETTINGS` env variable containing all settings as JSON
 
 ```json
 {
     "AWS": {
-        "accessKeyId": "*********",
-        "secretAccessKey": "*********"
+        "accessKeyId": "YOUR_AWS_ACCESS_KEY",
+        "secretAccessKey": "YOUR_AWS_SECRET_ACCESS_KEY"
     }
 }
 ```
+
+You can also use environment varialbes: `AWS_ACCESS_KEY` & `AWS_SECRET_ACCESS_KEY` instead of `METEOR_SETTINGS`.
 
 Here is how you can list all objects in a S3 bucket (on server)
 

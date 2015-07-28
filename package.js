@@ -1,7 +1,7 @@
 Package.describe({
     name: 'risul:aws-sdk',
     summary: 'AWS SDK for NodeJS - packaged for Meteor',
-    version: '1.0.4',
+    version: '1.0.5',
     git: 'https://github.com/risul/meteor-aws-sdk'
 });
 
